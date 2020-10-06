@@ -12,6 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @SpringBootApplication
 public class ElearningPlatformApplication {
 
@@ -33,6 +37,15 @@ public class ElearningPlatformApplication {
 
         @Override
         public void run(String... args) throws Exception {
+//            List<String> roles = Arrays.asList("ROLE_SUPER_ADMIN", "ROLE_ADMIN", "ROLE_STUDENT", "ROLE_INSTRUCTOR");
+//            for (String role : roles) {
+//                roleService.createRole(
+//                        RoleRequest.builder()
+//                                .roleName(role)
+//                                .build()
+//                );
+//            }
+//
 //            AdminUserRequest request = AdminUserRequest.builder()
 //                    .firstName("admin")
 //                    .lastName("admin")
@@ -41,16 +54,7 @@ public class ElearningPlatformApplication {
 //                    .roleName("ROLE_ADMIN")
 //                    .dateOfBirth("09/08/1991")
 //                    .build();
-//
-//            RoleRequest roleRequest = RoleRequest.builder()
-//                    .roleName(request.getRoleName())
-//                    .build();
-//
-//            roleService.createRole(roleRequest);
 //            adminUserService.createAdminUser(request);
         }
-
-
-
     }
 }

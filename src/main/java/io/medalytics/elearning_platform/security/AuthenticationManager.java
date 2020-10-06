@@ -25,13 +25,6 @@ public class AuthenticationManager implements org.springframework.security.authe
     @Autowired
     private JwtUtil jwtUtil;
 
-//    @Autowired
-//    public AuthenticationManager(AdminUserService adminUserService, RoleService roleService, JwtUtil jwtUtil) {
-//        this.adminUserService = adminUserService;
-//        this.roleService = roleService;
-//        this.jwtUtil = jwtUtil;
-//    }
-
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String token = authentication.getCredentials().toString();

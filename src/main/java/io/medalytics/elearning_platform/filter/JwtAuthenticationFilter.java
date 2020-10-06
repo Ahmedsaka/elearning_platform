@@ -1,5 +1,6 @@
 package io.medalytics.elearning_platform.filter;
 
+import io.medalytics.elearning_platform.exception.AuthenticationException;
 import io.medalytics.elearning_platform.security.AuthenticationManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -47,9 +48,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     .setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         }
-        if (authorizationHeader == null){
-            filterChain.doFilter(request, response);
-        }
+        filterChain.doFilter(request, response);
     }
 
 

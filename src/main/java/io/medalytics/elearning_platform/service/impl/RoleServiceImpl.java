@@ -1,7 +1,6 @@
 package io.medalytics.elearning_platform.service.impl;
 
 import io.medalytics.elearning_platform.exception.DuplicateException;
-import io.medalytics.elearning_platform.exception.NotFoundException;
 import io.medalytics.elearning_platform.dao.RoleDao;
 import io.medalytics.elearning_platform.model.Role;
 import io.medalytics.elearning_platform.model.request.RoleRequest;

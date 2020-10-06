@@ -1,19 +1,15 @@
 package io.medalytics.elearning_platform.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.util.Date;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Course extends BaseModel {
-    private String name;
+    private String courseName;
     private String instructorName;
-    private Date createdDate;
-    private String locationId;
+//    private String locationId;
+    private String courseContentLocation;
 }

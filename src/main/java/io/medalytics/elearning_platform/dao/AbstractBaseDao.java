@@ -1,7 +1,6 @@
 package io.medalytics.elearning_platform.dao;
 
 import io.medalytics.elearning_platform.model.BaseModel;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -15,12 +14,19 @@ import java.util.Map;
 
 public abstract class AbstractBaseDao<T extends BaseModel> implements BaseDao<T> {
     protected JdbcTemplate jdbcTemplate;
-    protected SimpleJdbcCall create, find,update, findAll;
+    protected SimpleJdbcCall create, find, findAll, update;
     protected final String SINGLE_RESULT = "object";
     protected final String MULTIPLE_RESULT = "list";
     protected static final String RESULT_COUNT = "count";
     public abstract void setDataSource(DataSource dataSource);
 
+    @Override
+    public List<T> findAll() {
+        SqlParameterSource in = new MapSqlParameterSource().addValue("", "");
+        Map<String, Object> m = findAll.execute(in);
+        List<T> list = (List<T>) m.get(MULTIPLE_RESULT);
+        return list;
+    }
 
     @Override
     public T create(T model) throws DataAccessException {
